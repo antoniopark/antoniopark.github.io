@@ -83,6 +83,10 @@ footer .contacto{
     margin: 0 auto;
 }
 
+.imgcert img{
+    width: 100px;
+}
+
 .listaCert{
     display: flex;
     justify-content: center;
