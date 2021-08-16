@@ -35,8 +35,6 @@ html body{
 
 .logo{
     text-align: center;
-    margin: 10px;
-    padding: 10px;
 }
 
 .logo img{
@@ -90,7 +88,7 @@ footer .contacto{
 }
 
 .certificaciones{
-	background: #dcaa65;
+	background: #000000;
 	padding:60px 0;
 }
 
