@@ -1,0 +1,116 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	background: #000000;
+	font-family: "Poppins", Sans-serif;
+	font-size: 16px;
+}
+
+.contenedor{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.logo{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.logo img{
+    width: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+  }
+
+ .redes-sociales{
+	background: #000000;
+	padding:60px 0;
+}
+
+ .redes-sociales a{
+	color: #E5A65E;
+	text-align: center;
+	width: 100px;
+	display:block;
+	padding: 15px 0;
+	border-radius: 8px;
+	font-size: 30px;
+	margin: 0 20px;
+}
+
+ .redes-sociales .contenedor{
+	display: flex;
+	justify-content: center;
+}
+
+ .redes-sociales .facebook:hover{
+    background: #3b5998;
+    color: #fff;
+}
+
+ .redes-sociales .instagram:hover{
+    background: #E1306C;
+    color: #fff;
+}
+
+ .redes-sociales .whatsapp:hover{
+    background: #25d366;
+    color: #fff;
+}
+
+/*-------------------- FOOTER ------------------*/
+
+footer .contacto{
+	padding: 60px 0;
+}
+
+.certificaciones{
+	background: #E5A65E;
+	padding:60px 0;
+}
+
+.imgcert{
+    width: 160px;
+    margin: 0 auto;
+}
+
+.listaCert{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/*-------------------- MEDIA QUERIES ------------------*/
+
+
+
+
+@media screen and (max-width: 500px){
+
+
+	footer .redes-sociales .contenedor {
+		flex-wrap:wrap;
+		padding: 20px 0;
+	}
+}
+
+@media screen and (max-width: 360px){
+
+
+	footer .redes-sociales .contenedor{
+		flex-wrap:wrap;
+		padding: 10px 0;
+	}
+}
