@@ -254,7 +254,7 @@ footer .contacto .contenedor .formulario textarea{
 	margin-bottom: 15px;
 }
 
-footer .contacto .contenedor .formulario .boton{
+.boton{
 	margin: auto;
 	background: #262b34;
 	color: #fff;
@@ -262,10 +262,11 @@ footer .contacto .contenedor .formulario .boton{
 	border-radius: 3px;
 	padding: 15px 40px;
 	cursor: pointer;
+	text-decoration: none;
 
 }
 
-footer .contacto .contenedor .formulario .boton:hover{
+.boton:hover{
 	background: #a4a4a4;	
 }
 
