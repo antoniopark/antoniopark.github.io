@@ -212,6 +212,23 @@ function buildContent() {
     <section class="card fade-slide hero">
       <div class="tag">Feliz Año Nuevo</div>
       <h1>Feliz Año Nuevo 2026, ${GIRL_NAME} ✨</h1>
+      <div class="audio-player">
+        <div class="audio-top">
+          <button id="audio-toggle" class="ghost-btn small" aria-label="Reproducir o pausar">▶</button>
+          <div>
+            <div class="audio-title">Te quiero mucho Cielo :)</div>
+          </div>
+        </div>
+        <div class="audio-progress">
+          <div class="audio-bar" id="audio-bar">
+            <div class="audio-bar-fill" id="audio-fill"></div>
+          </div>
+          <div class="audio-time">
+            <span id="audio-current">0:00</span>
+            <span id="audio-duration">0:00</span>
+          </div>
+        </div>
+      </div>
       <p>Gracias por llegar a mi vida. Este año quiero que, aunque haya kilómetros, se sienta que estamos cerquita, celebrando cada cosa como si estuviéramos en la misma sala.</p>
       <p>Me emociona que seamos pareja; pensar en nuestras llamadas nocturnas, las cartas que nos debemos y las visitas que planeamos me hace sonreír como si ya estuviera a tu lado.</p>
     </section>
@@ -236,23 +253,6 @@ function buildContent() {
     <section class="card fade-slide" id="collage">
       <div class="section-title">Tus fotos favoritas</div>
       <p>Cada foto es un mensaje para ti, con un cumplido que te recuerda cuánto te amo.</p>
-      <div class="audio-player">
-        <div class="audio-top">
-          <button id="audio-toggle" class="ghost-btn small" aria-label="Reproducir o pausar">▶</button>
-          <div>
-            <div class="audio-title">Espero lo disfrutes :)</div>
-          </div>
-        </div>
-        <div class="audio-progress">
-          <div class="audio-bar" id="audio-bar">
-            <div class="audio-bar-fill" id="audio-fill"></div>
-          </div>
-          <div class="audio-time">
-            <span id="audio-current">0:00</span>
-            <span id="audio-duration">0:00</span>
-          </div>
-        </div>
-      </div>
       <div class="carousel">
         <div class="carousel-frame">
           <img id="carousel-img" alt="Recuerdo con ${GIRL_NAME}" tabindex="0">
