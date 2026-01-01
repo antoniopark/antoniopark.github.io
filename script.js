@@ -1,6 +1,6 @@
 const GIRL_NAME = "Princesa Hannia";
 const YOUR_NAME = "Teacher Rigo";
-const PASSWORD = "AñoNuevoHyR";
+const PASSWORD = "HyR";
 const TARGET_DATE = new Date("2026-01-01T00:00:00");
 const AUDIO_SRC = "img/Creo En Ti.mp3";
 
