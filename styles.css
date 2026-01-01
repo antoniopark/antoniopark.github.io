@@ -77,8 +77,16 @@ canvas#fx {
 
 .input-row {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .input-row {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 input[type="password"] {
@@ -119,6 +127,10 @@ button:hover {
 button:active {
   transform: translateY(0);
   filter: brightness(0.96);
+}
+
+.input-row button {
+  width: 100%;
 }
 .ghost-btn {
   background: rgba(255, 255, 255, 0.08);

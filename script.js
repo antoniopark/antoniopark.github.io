@@ -1,6 +1,7 @@
 const GIRL_NAME = "Princesa Hannia";
 const YOUR_NAME = "Teacher Rigo";
 const PASSWORD = "HyR";
+const DEMO_PASSWORD = "pruebademo";
 const TARGET_DATE = new Date("2026-01-01T00:00:00");
 const AUDIO_SRC = "img/Creo En Ti.mp3";
 
@@ -18,9 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackground();
 
   const unlocked = sessionStorage.getItem("unlocked") === "1";
-  if (unlocked) {
+  const unlockedDemo = sessionStorage.getItem("unlockedDemo") === "1";
+  if (unlocked || unlockedDemo) {
     lock.style.display = "none";
-    routeAfterUnlock();
+    routeAfterUnlock(unlockedDemo ? "demo" : "main");
   }
 
   const attemptUnlock = () => {
@@ -30,7 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
       lock.classList.remove("shake");
       errorEl.textContent = "";
       lock.style.display = "none";
-      routeAfterUnlock();
+      routeAfterUnlock("main");
+    } else if (val === DEMO_PASSWORD) {
+      sessionStorage.setItem("unlockedDemo", "1");
+      lock.classList.remove("shake");
+      errorEl.textContent = "";
+      lock.style.display = "none";
+      routeAfterUnlock("demo");
     } else {
       errorEl.textContent = "Esa no es… intenta otra vez 💛";
       lock.classList.remove("shake");
@@ -50,10 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function routeAfterUnlock() {
+function routeAfterUnlock(mode = "main") {
   if (revealed) return;
   const now = new Date();
-  if (now >= TARGET_DATE) {
+  if (mode === "demo") {
+    triggerReveal(true);
+  } else if (now >= TARGET_DATE) {
     triggerReveal();
   } else {
     renderCountdown();
@@ -71,14 +81,12 @@ function renderCountdown() {
         <div class="count-box"><span class="num" id="m">00</span><span class="txt">min</span></div>
         <div class="count-box"><span class="num" id="s">00</span><span class="txt">seg</span></div>
       </div>
-      <button id="skip" class="ghost-btn" type="button" aria-label="Ver ahora en modo prueba">Ver ahora (modo prueba)</button>
     </section>
   `;
   const dEl = document.getElementById("d");
   const hEl = document.getElementById("h");
   const mEl = document.getElementById("m");
   const sEl = document.getElementById("s");
-  const skipBtn = document.getElementById("skip");
 
   const tick = () => {
     const now = new Date();
@@ -102,7 +110,6 @@ function renderCountdown() {
 
   tick();
   countdownTimer = setInterval(tick, 250);
-  skipBtn?.addEventListener("click", () => triggerReveal(true));
 }
 
 function triggerReveal(isPreview = false) {
@@ -207,7 +214,7 @@ function buildContent() {
         <div class="audio-top">
           <button id="audio-toggle" class="ghost-btn small" aria-label="Reproducir o pausar">▶</button>
           <div>
-            <div class="audio-title">Espero que disfrutes estos cumplidos :)</div>
+            <div class="audio-title">Espero lo disfrutes :)</div>
           </div>
         </div>
         <div class="audio-progress">
@@ -230,7 +237,7 @@ function buildContent() {
         <div class="carousel-progress" id="carousel-progress"></div>
       </div>
     </section>
-    <div class="footer fade-slide">Con amor, ${YOUR_NAME} — 31/12/2025 → 2026</div>
+    <div class="footer fade-slide">Con amor, ${YOUR_NAME}, para Mi Novia hermosa — 31/12/2025 → 2026</div>
   `;
 
   app.innerHTML = message;
