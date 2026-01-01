@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.getElementById("password");
   const enterBtn = document.getElementById("enter");
   const errorEl = document.getElementById("error");
+  const lockDigits = {
+    d: document.getElementById("ld"),
+    h: document.getElementById("lh"),
+    m: document.getElementById("lm"),
+    s: document.getElementById("ls"),
+  };
 
   initBackground();
 
@@ -52,6 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
   passwordInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") attemptUnlock();
   });
+
+  startLockCountdown(lockDigits);
 
   document.addEventListener("visibilitychange", () => {
     fxPaused = document.hidden;
@@ -110,6 +118,24 @@ function renderCountdown() {
 
   tick();
   countdownTimer = setInterval(tick, 250);
+}
+
+function startLockCountdown(lockDigits) {
+  if (!lockDigits.d) return;
+  const update = () => {
+    const now = new Date();
+    const diff = TARGET_DATE - now;
+    const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+    const hours = Math.max(0, Math.floor((diff / (1000 * 60 * 60)) % 24));
+    const minutes = Math.max(0, Math.floor((diff / (1000 * 60)) % 60));
+    const seconds = Math.max(0, Math.floor((diff / 1000) % 60));
+    lockDigits.d.textContent = String(days).padStart(2, "0");
+    lockDigits.h.textContent = String(hours).padStart(2, "0");
+    lockDigits.m.textContent = String(minutes).padStart(2, "0");
+    lockDigits.s.textContent = String(seconds).padStart(2, "0");
+  };
+  update();
+  setInterval(update, 1000);
 }
 
 function triggerReveal(isPreview = false) {

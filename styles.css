@@ -58,7 +58,7 @@ canvas#fx {
 }
 
 .lock-card {
-  width: min(420px, 90vw);
+  width: min(480px, 92vw);
   padding: 28px;
   border-radius: 20px;
   background: var(--glass);
@@ -73,6 +73,46 @@ canvas#fx {
 
 .lock-card p {
   margin: 0 0 18px;
+}
+
+.lock-countdown {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lock-countdown .label {
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.lock-countdown .digits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.lock-countdown .box {
+  padding: 10px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lock-countdown .num {
+  display: block;
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.lock-countdown .txt {
+  font-size: 0.82rem;
+  color: var(--muted);
 }
 
 .input-row {
